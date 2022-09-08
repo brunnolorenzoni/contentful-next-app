@@ -37,17 +37,16 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      category,
+      category: categoryEntry.items[0],
       products: products.items
     },
   }
 }
 
 export default function CaegoriesPage({ category, products }) {
-  console.log(products[0].fields.categories)
   return (
     <div>
-      <h1>Category {category}</h1>
+      <h1>Category {category.fields.title}</h1>
       <div>
         <ul>
           {products.map(p => <li key={p.sys.id}>{p.fields.productName}</li>)}
