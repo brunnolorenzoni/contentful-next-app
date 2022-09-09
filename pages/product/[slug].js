@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import contentful from 'lib/contentful'
 
 export default function ProductPage(props) {
@@ -11,10 +12,16 @@ export default function ProductPage(props) {
   }
 
   const { productName, productDescription, image, tags, categories, price, brand, quantity, sku, website } = props
+  console.log(categories)
   return (
     <>
+      <Head>
+        <title>{productName}</title>
+        <meta name="description" content={productDescription} />
+      </Head>
       <div>
         <h1>{productName}</h1>
+        {categories.map(category => <span key={category.sys.id}>{category.fields.title}</span>)}
       </div>
       <div>
         <div>
