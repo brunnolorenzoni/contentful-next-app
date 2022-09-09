@@ -12,7 +12,6 @@ export default function ProductPage(props) {
   }
 
   const { productName, productDescription, image, tags, categories, price, brand, quantity, sku, website } = props
-  console.log(categories)
   return (
     <>
       <Head>

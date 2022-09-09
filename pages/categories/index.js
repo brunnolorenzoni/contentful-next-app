@@ -1,5 +1,4 @@
 export default function CaegoriesPage({ categories }) {
-  console.log(categories)
   return (
     <div>
       <h1>Categories</h1>
