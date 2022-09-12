@@ -18,10 +18,12 @@ export async function getServerSideProps({ req, res }) {
   const { title, products, categoryOrder } = homePageEntries.items[0].fields;
 
   const data = categoryOrder.reduce((total, category) => {
-    total[category.fields.slug] = total[category.fields.slug] || { category: category, products: [] };
-    total[category.fields.slug].products = products.filter(p => {
+    const filter = products.filter(p => {
       return p.fields.categories.find(productCategory => productCategory.sys.id === category.sys.id)
     })
+    if(filter.length) {
+      total[category.fields.slug] = { category: category, products: filter };
+    }
     return total
   }, {})
 

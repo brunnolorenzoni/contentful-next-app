@@ -57,7 +57,6 @@ const Carousel = ({ children, indicators }) => {
           return React.cloneElement(child, { width: "100%" });
         })}
       </div>
-      { indicators && 
         <div className="indicators">
           <button
             onClick={() => {
@@ -86,7 +85,6 @@ const Carousel = ({ children, indicators }) => {
             {'>'}
           </button>
         </div>
-      }
     </div>
   );
 };
