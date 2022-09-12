@@ -1,8 +1,8 @@
+import TagLabel from "./TagLabel";
+
 const ProductCard = ({ product }) => {
   const { productName, productDescription, slug, tags, image } = product.fields
   
-  const tagsLabels = () => tags.map((tag, index) => <span key={`tag-${tag}`} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{tag}</span>)
-
   return (
     <div className="card bg-white rounded overflow-hidden shadow-lg w-full mb-6">
       <a href={`/product/${slug}`}>
@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
         </div>
       </a>
       <div className="px-6 pt-4 pb-2">
-        {tagsLabels()}
+        {tags.map(tag => <TagLabel key={tag}>#{tag}</TagLabel>)}
       </div>
     </div>
   );
