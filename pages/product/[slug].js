@@ -30,13 +30,23 @@ export default function ProductPage({ productName, productDescription, image, ta
             </picture>
           </div>
 
-          <div id="description-wrapper" className='container  p-4'>
-            <span>{companyName}</span>
-            <h1 className='font-bold mb-2'>{productName}</h1>
-            {categories.map(category => <span key={category.sys.id}>{category.fields.title}</span>)}
-            <p>{productDescription}</p>
-            <span>{price} €</span>
+          <div id="description-wrapper" className='container p-4'>
+            <div>
+              {categories.map(category => <span key={category.sys.id} className="text-xs">{category.fields.title}</span>)}
+              <h1 className='font-bold text-2xl'>{productName}</h1>
+              <span className='text-xs'>{companyName}</span>
+            </div>
+            <div>
+              <p>{productDescription}</p>
+            </div>
+            <div>
+              <span>{price} €</span>
+            </div>
+
           </div>
+
+          
+
         </div>
 
         <div className='flex'>

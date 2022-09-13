@@ -3,6 +3,8 @@ import contentful from 'lib/contentful'
 import Carousel, { CarouselItem } from 'components/Carousel'
 import ProductCard from 'components/ProductCard'
 
+import { AiOutlineRight } from 'react-icons/ai' 
+
 export async function getServerSideProps({ req, res }) {
 
   const homePageEntries = await contentful.getEntries({
@@ -68,9 +70,10 @@ export default function Home({ data, carousel, title }) {
         {
           Object.keys(data).map(key => (
             <section key={data[key].category.sys.id} className="p-10 ">
-              <h2 className='font-bold mb-2'>
-                <a className='transition ease-in-out duration-300 hover:text-gray-500'  href={`/categories/${key}`}>{data[key].category.fields.title}</a>
-              </h2>
+              <a className='block transition ease-in-out duration-300 hover:text-gray-500 mb-2'  href={`/categories/${key}`}>
+                <h2 className='inline-block align-middle font-bold text-sm'>{data[key].category.fields.title}</h2>
+                <span className='inline-block align-middle text-sm'><AiOutlineRight /></span>
+              </a>
               <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
                 {data[key].products.map(product => <ProductCard key={product.sys.id} product={product} />)}
               </div>
