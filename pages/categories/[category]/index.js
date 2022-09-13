@@ -4,7 +4,6 @@ export async function getStaticPaths() {
   const categories = await contentful.getEntries({
     content_type: 'category',
   })
-
   
   const paths = categories.items.map(category => ({
     params: {
@@ -14,36 +13,51 @@ export async function getStaticPaths() {
   }))
 
   return {
-    fallback: true,
+    fallback: 'blocking',
     paths,
   }
 }
 
 
-export async function getStaticProps(context) {
-  const { category } = context.params
+export async function getStaticProps({ params }) {
+  const { category } = params
 
   const categoryEntry = await contentful.getEntries({
     content_type: 'category',
     'fields.slug': category
   })
-  const categoryId = categoryEntry.items[0].sys.id
-  const products = await contentful.getEntries({
-    content_type: 'product',
-    limit: 10,
-    include: 10,
-    'fields.categories.sys.id': categoryId
-  })
 
-  return {
-    props: {
-      category: categoryEntry.items[0],
-      products: products.items
-    },
+  if(!categoryEntry.items.length) {
+    return {
+      props: {
+        error: true
+      },
+    }
   }
+  
+  const categoryId = categoryEntry.items[0].sys.id
+    const products = await contentful.getEntries({
+      content_type: 'product',
+      limit: 10,
+      include: 10,
+      'fields.categories.sys.id': categoryId
+    })
+  
+    return {
+      props: {
+        category: categoryEntry.items[0],
+        products: products.items
+      },
+    }
+
 }
 
-export default function CaegoriesPage({ category, products }) {
+export default function CategoryPage({ category, products, error }) {
+  
+  if(error) {
+    return (<><h1>Not Found</h1></>)
+  }
+  
   return (
     <div>
       <h1>Category {category.fields.title}</h1>

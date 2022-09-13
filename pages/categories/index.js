@@ -1,9 +1,7 @@
 import contentful from 'lib/contentful'
 import CategoryCard from 'components/CategoryCard'
 
-export default function CaegoriesPage({ categories }) {
-  console.log(categories)
-
+export default function CategoriesPage({ categories }) {
   return (
     <>
       <header>
@@ -21,7 +19,7 @@ export default function CaegoriesPage({ categories }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 
   const categories = await contentful.getEntries({
     content_type: 'category',
