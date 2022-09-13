@@ -12,8 +12,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: green;
-  color: #fff;
+  background-color: white;
+  color: black;
 }
 
 .indicators {
@@ -23,9 +23,9 @@
 
 .indicators > button {
   margin: 5px;
+  color: #9f9f9f;
 }
 
 .indicators > button.active {
-  background-color: green;
-  color: #fff;
+  color: #666666;
 }

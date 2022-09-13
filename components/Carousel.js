@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { GoPrimitiveDot } from 'react-icons/go'
+import { BsChevronCompactRight, BsChevronCompactLeft } from 'react-icons/bs'
 import { useSwipeable } from "react-swipeable";
 
 export const CarouselItem = ({ children, width }) => {
@@ -63,7 +65,7 @@ const Carousel = ({ children, indicators }) => {
               updateIndex(activeIndex - 1);
             }}
           >
-            {'<'}
+            {<BsChevronCompactLeft />}
           </button>
           {React.Children.map(children, (child, index) => {
             return (
@@ -73,7 +75,7 @@ const Carousel = ({ children, indicators }) => {
                   updateIndex(index);
                 }}
               >
-                {index + 1}
+                {<GoPrimitiveDot />}
               </button>
             );
           })}
@@ -82,7 +84,7 @@ const Carousel = ({ children, indicators }) => {
               updateIndex(activeIndex + 1);
             }}
           >
-            {'>'}
+            {<BsChevronCompactRight />}
           </button>
         </div>
     </div>
