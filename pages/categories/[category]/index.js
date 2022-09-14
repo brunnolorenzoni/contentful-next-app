@@ -1,3 +1,5 @@
+import Head from 'next/head'
+import ProductCard from 'components/ProductCard'
 import contentful from 'lib/contentful'
 
 export async function getStaticPaths() {
@@ -59,13 +61,19 @@ export default function CategoryPage({ category, products, error }) {
   }
   
   return (
-    <div>
-      <h1>Category {category.fields.title}</h1>
-      <div>
-        <ul>
-          {products.map(p => <li key={p.sys.id}>{p.fields.productName}</li>)}
-        </ul>
-      </div>
-    </div>
+    <>
+      <Head>
+        <title>{category.fields.title}</title>
+        <meta name="description" content={category.fields.description} />
+      </Head>
+      <main className='p-2'>
+        <h1 className='font-bold text-5xl text-center mb-4'>{category.fields.title}</h1>
+        <section className="p-10 ">
+          <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
+            {products.map(product => <ProductCard key={product.sys.id} product={product} />)}
+          </div>
+        </section>
+      </main>
+    </>
   )
 }

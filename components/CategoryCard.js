@@ -3,7 +3,7 @@ import Link from "next/link";
 const CategoryCard = ({ category }) => {
   const { title, slug, image } = category.fields
   return (
-    <div className="card bg-white rounded overflow-hidden shadow-lg w-full transform transition duration-300 hover:-translate-y-1 hover:text-gray-700">
+    <div className="card bg-white rounded overflow-hidden shadow-lg w-full transform transition duration-300 hover:-translate-y-1 hover:text-gray-700 hover:scale-105">
       <Link href={`/categories/${slug}`}>
       <a>
         <picture className="block overflow-hidden">

@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
     <div className="card bg-white rounded overflow-hidden shadow-lg w-full mb-6">
       <Link href={`/product/${slug}`}>
         <a>
-          <picture className="block h-64 overflow-hidden">
+          <picture className="block h-64 overflow-hidden transition duration-300 hover:scale-105">
             <source src={`https:${image[0].fields.file.url}`} type={image[0].fields.file.contentType} />
             <img className="object-cover m-auto object-center h-full" src={`https:${image[0].fields.file.url}`} alt={image[0].fields.description} />
           </picture>
