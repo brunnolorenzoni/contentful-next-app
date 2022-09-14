@@ -1,9 +1,14 @@
+import Head from 'next/head'
 import contentful from 'lib/contentful'
 import CategoryCard from 'components/CategoryCard'
 
 export default function CategoriesPage({ categories }) {
   return (
     <>
+      <Head>
+        <title>Categories</title>
+        <meta name="description" content="Explore our site, discover new products and spend your money" />
+      </Head>
       <header className='p-4'>
         <h1 className='font-bold text-5xl text-center mb-2'>Categories</h1>
         <p className='text-lg text-center'>Explore our site, discover new products and spend your money</p>
