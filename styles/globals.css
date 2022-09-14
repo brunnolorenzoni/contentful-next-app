@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(Header.css);
+@import url(Carousel.css);
+
 
 html,
 body {

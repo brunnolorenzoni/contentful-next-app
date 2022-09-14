@@ -20,7 +20,6 @@ export default function ProductPage({ productName, productDescription, image, ta
         <title>{productName}</title>
         <meta name="description" content={productDescription} />
       </Head>
-
       <main className='p-2 flex flex-wrap justify-center m-auto w-4/5 max-w-screen-lg'>
         <div className='grid grid-cols-1 md:grid-cols-2'>
           <div id="image-wrapper" className='container  p-4'>

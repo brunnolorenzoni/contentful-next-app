@@ -42,7 +42,7 @@ export async function getServerSideProps({ req, res }) {
 export default function Home({ data, carousel, title }) {
 
   return (
-    <div>
+    <>
       <Head>
         <title>Products Catalogue</title>
         <meta name="description" content="Products Catalogue home page" />
@@ -87,6 +87,6 @@ export default function Home({ data, carousel, title }) {
         
 
       </main>
-    </div>
+    </>
   )
 }

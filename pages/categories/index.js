@@ -9,10 +9,10 @@ export default function CategoriesPage({ categories }) {
         <title>Categories</title>
         <meta name="description" content="Explore our site, discover new products and spend your money" />
       </Head>
-      <header className='p-4'>
+      <div className='p-4'>
         <h1 className='font-bold text-5xl text-center mb-2'>Categories</h1>
         <p className='text-lg text-center'>Explore our site, discover new products and spend your money</p>
-      </header>
+      </div>
 
       <main className='p-4'>
         <section id="categories-section" className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4'>
