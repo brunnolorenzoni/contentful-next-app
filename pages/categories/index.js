@@ -4,14 +4,17 @@ import CategoryCard from 'components/CategoryCard'
 export default function CategoriesPage({ categories }) {
   return (
     <>
-      <header>
-        <h1>Categories</h1>
+      <header className='p-4'>
+        <h1 className='font-bold text-5xl text-center mb-2'>Categories</h1>
+        <p className='text-lg text-center'>Explore our site, discover new products and spend your money</p>
       </header>
 
-      <main>
-        <section id="categories-section" className='grid'>
+      <main className='p-4'>
+        <section id="categories-section" className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4'>
           {categories.map(category => (
-            <CategoryCard key={category.sys.id} category={category}></CategoryCard>
+            <div className='w-full' key={category.sys.id}>
+              <CategoryCard category={category}></CategoryCard>
+            </div>
           ))}
         </section>
       </main>

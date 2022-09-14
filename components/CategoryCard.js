@@ -1,17 +1,17 @@
 import Link from "next/link";
 
 const CategoryCard = ({ category }) => {
-  const { title, slug, icon } = category.fields
+  const { title, slug, image } = category.fields
   return (
-    <div className="card bg-white rounded overflow-hidden shadow-lg w-full mb-6">
+    <div className="card bg-white rounded overflow-hidden shadow-lg w-full transform transition duration-300 hover:-translate-y-1 hover:text-gray-700">
       <Link href={`/categories/${slug}`}>
       <a>
-        <picture className="block h-64 overflow-hidden">
-          <source src={`https:${icon.fields.file.url}`} type={icon.fields.file.contentType} />
-          <img className="object-cover m-auto object-center h-full" src={`https:${icon.fields.file.url}`} alt={icon.fields.description} />
+        <picture className="block overflow-hidden">
+          <source src={`https:${image.fields.file.url}`} type={image.fields.file.contentType} />
+          <img className="w-full h-28 object-cover m-auto object-center" src={`https:${image.fields.file.url}`} alt={image.fields.description} />
         </picture>
-        <div className="px-6 py-4">
-          <h2 className="font-bold text-xl mb-2">{title}</h2>
+        <div className="px-4 py-2">
+          <h2 className="font-bold text-center text-md">{title}</h2>
         </div>
       </a>
       </Link>
