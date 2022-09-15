@@ -6,17 +6,22 @@ import { useState } from 'react';
 const Navbar = () => {
 
   const [dropdown, setDropdown] = useState(false);
+  const [menu, setMenu] = useState(false);
 
   const handlerMouseEnterMenu = () => setDropdown(true);
   const handlerMouseLeaveMenu = () => setDropdown(false);
 
+  const handleOpenMenu = () => {
+    setMenu(!menu)
+  }
+
   return (
     <nav className="flex flex-row justify-between items-center flex-wrap">
-      <button className="block md:hidden"> 
-        <GiHamburgerMenu />
+      <button className="block md:hidden" onClick={handleOpenMenu}> 
+        <GiHamburgerMenu className="text-3xl" />
       </button>
 
-      <ul className="flex flex-row justify-center items-center flex-wrap">
+      <ul className="hidden md:flex flex-row justify-center items-center flex-wrap">
         <li className="p-2 m-2">
           <Link href='/'>
             <a>Home</a>
