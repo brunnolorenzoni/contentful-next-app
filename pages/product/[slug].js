@@ -86,9 +86,6 @@ export default function ProductPage({ productName, productDescription, image, ta
         <div className='my-3 w-full flex flex-wrap justify-center items-start'>
           {tags.map(tag => <TagLabel key={tag}>#{tag}</TagLabel>)}
         </div>
-
-
-
       </main>
     </>
   )
