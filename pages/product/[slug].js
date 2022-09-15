@@ -60,28 +60,28 @@ export default function ProductPage({ productName, productDescription, image, ta
         </div>
 
         <div className='my-3 w-full'>
-              <table className="border-collapse w-full  text-sm shadow-sm">
-                <thead>
-                  <tr>
-                    <td className='text-center font-bold p-3' colSpan={2}>Extra info</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className='odd:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>Quantity</td>
-                    <td className='even:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{quantity}</td>
-                  </tr>
-                  <tr>
-                    <td className='odd:bg-gray-200 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>SKU</td>
-                    <td className='even:bg-gray-200 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{sku}</td>
-                  </tr>
-                  <tr>
-                    <td className='odd:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>Size</td>
-                    <td className='even:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{sizetypecolor}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <table className="border-collapse w-full  text-sm shadow-sm">
+            <thead>
+              <tr>
+                <td className='text-center font-bold p-3' colSpan={2}>Extra info</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='odd:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>Quantity</td>
+                <td className='even:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{quantity}</td>
+              </tr>
+              <tr>
+                <td className='odd:bg-gray-200 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>SKU</td>
+                <td className='even:bg-gray-200 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{sku}</td>
+              </tr>
+              <tr>
+                <td className='odd:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>Size</td>
+                <td className='even:bg-gray-100 w-1/2 text-left border border-slate-300 dark:border-slate-700 p-4 text-slate-500'>{sizetypecolor}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div className='my-3 w-full flex flex-wrap justify-center items-start'>
           {tags.map(tag => <TagLabel key={tag}>#{tag}</TagLabel>)}
