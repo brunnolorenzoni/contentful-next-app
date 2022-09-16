@@ -91,28 +91,12 @@ export default function ProductPage({ productName, productDescription, image, ta
   )
 }
 
-export async function getStaticPaths() {
-  const products = await contentful.getEntries({
-    content_type: 'product',
-  })
 
-  const paths = products.items.map(product => ({
-    params: {
-      slug: product.fields.slug
-    }
-  }))
-
-  return {
-    fallback: true,
-    paths,
-  }
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps({ params }) {
   const product = await contentful.getEntries({
     content_type: 'product',
     limit: 1,
-    "fields.slug": context.params.slug,
+    "fields.slug": params.slug,
   })
   
   return {
