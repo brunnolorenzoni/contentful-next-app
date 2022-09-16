@@ -50,6 +50,7 @@ export async function getStaticProps({ params }) {
         category: categoryEntry.items[0],
         products: products.items
       },
+      revalidate: 3600
     }
 
 }
