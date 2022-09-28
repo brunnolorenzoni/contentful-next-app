@@ -28,12 +28,12 @@ const Navbar = () => {
         </button>
         
         <li className="block md:inline-block w-full md:w-min text-center p-2 m-2">
-          <Link href='/' replace>
+          <Link href='/'>
             <a>Home</a>
           </Link>
         </li>
         <li className="block md:inline-block w-full md:w-min text-center p-2 m-2">
-          <Link href='/about' replace>
+          <Link href='/about'>
             <a>About</a>
           </Link>
         </li>
@@ -43,7 +43,10 @@ const Navbar = () => {
         >
           <button
             aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown((prev) => !prev)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setDropdown((prev) => !prev)
+            }}
           >Categories</button>
           <Dropdown dropdown={dropdown} />
         </li>
