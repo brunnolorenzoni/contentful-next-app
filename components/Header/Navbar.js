@@ -9,7 +9,10 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [toogleMenu, setToogleMenu] = useState(false);
 
-  const toggleDropdown = () => setDropdown(prev => !prev);
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
+    setDropdown(prev => !prev);
+  }
   const toggleMenuHamburguer = () => setToogleMenu(prev => !prev);
 
   return (
